@@ -1,0 +1,10 @@
+# Site settings
+title: .plan
+email: cnelson@cnelson.org
+description: /home/cnelson/.plan
+url: "https://dotplan.cnelson.org"
+twitter_username: 299792456nelson
+github_username:  cnelson
+
+# Build settings
+markdown: kramdown
