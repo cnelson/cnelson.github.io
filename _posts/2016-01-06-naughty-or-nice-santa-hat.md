@@ -26,9 +26,9 @@ The LEDs are connected to the ESP8266's SPI (MOSI/CLK) pins.
 
 ![Electronic Components]({{ site.baseurl }}/assets/santa-hat/IMG_6772.JPG)
 
-I was slightly concerned about putting 6.4v into the LEDs as the datasheet says not to give them more than 6 volts, but it seemed to work just fine. Your mileage may vary; there are a large number of APA102 clones on the market some of which are of dubious quality.  The ESP8266 is a 3.3v device, but the breakout board included a voltage regulator which can handle stepping the 6.4v down to a stable 3.3v.
+I was slightly concerned about putting 6.4v into the LEDs as the datasheet says not to give them more than 6 volts, but it seemed to work just fine. Your mileage may vary; there are a large number of APA102 clones on the market some of which are of dubious quality.
 
-My only complaint with this particular breakout board is that no pin is exposed to the VIN for the voltage regulator so I had to solder in a jump wire to power it from a non-USB source.
+The ESP8266 is a 3.3v device, but the breakout board included a voltage regulator which can handle stepping the 6.4v down to a stable 3.3v. Overall this board is a good deal for a Made-in-the-USA full featured ESP8266 breakout, but it it does have a couple of problems.  It doesn't expose a pin for the VIN for the voltage regulator so I had to solder in a jump wire to power it from a non-USB source.  Additionally, it uses the older-style mini-USB connector rather than micro.
 
 After soldering everything together, and checking the connections, I rolled it up into the brim of a santa hat and the hardware was complete!  
 
@@ -46,7 +46,7 @@ After a few minutes of looking at available APIs, I stumbled across [SpotCrime](
 
 Now I just needed to find out how to have the ESP8266 figure out where it was.  I planned to tether the hat to my phone while I was away from the house so I didn't want to trust IP geolocation; I needed something more accurate.  Thankfully Google provides the [Google Maps Geolocation API](https://developers.google.com/maps/documentation/geolocation/intro) which allows you to provide a list of BSSIDs nearby and it will approximate your location.
 
-Now that "the cloud" was doing all the heavily lifting for me, I just had to write the code to tie it all together.  I decided to put as much of the code on the server as possible.  Given my [prior](https://en.wikipedia.org/wiki/NinjaTel_Van) [experience](https://en.wikipedia.org/wiki/Capture_(TV_series)) with wireless deployments, I don't trust a tethered connection to a mobile phone to reliable or robust.  Limiting the amount of data I need to send/receive over the wireless link would be critical to having the hat actually function in the real world. 
+Now that "the cloud" was doing all the heavily lifting for me, I just had to write the code to tie it all together.  I decided to put as much of the code on the server as possible.  Given my [prior](https://en.wikipedia.org/wiki/NinjaTel_Van) [experience](https://en.wikipedia.org/wiki/Capture_(TV_series)) with wireless deployments, I don't trust a tethered connection to a mobile phone to be reliable or robust.  Limiting the amount of data I send/receive over the wireless link would be critical to having the hat actually function in the real world. 
 
 ### Server
 
